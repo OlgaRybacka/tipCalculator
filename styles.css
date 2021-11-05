@@ -1,0 +1,83 @@
+:root {
+	--strong-cyan: hsl(172, 67%, 45%);
+	--very dark cyan: hsl(183, 100%, 15%);
+	--dark-grayish-cyan: hsl(186, 14%, 43%);
+	--dark-grayish-cyan2: hsl(184, 14%, 56%);
+	--light-grayish-cyan: hsl(185, 41%, 84%);
+	--light-grayish-cyan: hsl(189, 41%, 97%);
+	--white: hsl(0, 0%, 100%);
+}
+
+*, *::before, *::after {
+	font-family: 'Space Mono', monospace;
+	box-sizing: border-box;
+	border: 1px solid red;
+}
+
+.container {
+	display:flex;
+	flex-direction: column;
+	width: 1440px;
+	margin: auto;
+}
+
+.logo {
+	margin:auto;
+}
+
+.calculator {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 60%;
+	margin: auto;
+}
+
+.calculator > div {
+	width: 40%;
+}
+
+.calc-left-radiogroup {
+	display:flex;
+	flex-direction:row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.calc-left-radiogroup > div {
+	width: 30%;
+	background: blue;
+}
+
+input[type=radio] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+}
+input[type=radio]+label {
+	font-weight: normal;
+}
+input[type=radio]:checked+label {
+	font-weight: bold;
+}
+input[type=radio]:focus+label {
+	border: 1px dotted #000;
+}
+
+.calc-right-row {
+	display:flex;
+	flex-direction:row;
+	justify-content: space-between;
+}
+
+
+
+
+.attribution { 
+	font-size: 11px; 
+	text-align: center; 
+}
+
+.attribution a { 
+	color: hsl(228, 45%, 44%); 
+}
