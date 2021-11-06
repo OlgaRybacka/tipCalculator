@@ -20,38 +20,43 @@
 	<div class="logo"><img src="images/logo.svg" /></div>
 	<div class="calculator"> 
 		<div class="calc-left">
-			<p class="calc-left-label">Bill</p>
-			<input type="number" id="form-bill" name="form-bill" min="0"><br>
-			<p class="calc-left-label">Select Tip %</p>
-			<div class="calc-left-radiogroup">
-				<div>
-					<input type="radio" id="tip-5" name="select-tip-radio" value="5">
-					<label for="tip-5">5%</label>
-				</div>
-				<div>
-					<input type="radio" id="tip-10" name="select-tip-radio" value="10">
-					<label for="tip-10">10%</label>
-				</div>
-				<div>
-					<input type="radio" id="tip-15" name="select-tip-radio" value="15">
-					<label for="tip-15">15%</label>
-				</div>
-				<div>
-					<input type="radio" id="tip-25" name="select-tip-radio" value="25">
-					<label for="tip-25">25%</label>
-				</div>
-				<div>
-					<input type="radio" id="tip-50" name="select-tip-radio" value="50">
-					<label for="tip-50">50%</label>
-				</div>
-				<div>
-					<input type="radio" id="tip-custom" name="select-tip-radio" value="custom">
-					<label for="tip-custom">custom</label>
+			<div>
+				<p class="calc-left-label">Bill</p>
+				<input type="number" id="form-bill" name="form-bill" min="0" step="0.01" value="0"><br>
+			</div>
+			<div>
+				<p class="calc-left-label">Select Tip %</p>
+				<div class="calc-left-radiogroup">
+					<div>
+						<input type="radio" id="tip-5" name="select-tip-radio" value="5">
+						<label for="tip-5">5%</label>
+					</div>
+					<div>
+						<input type="radio" id="tip-10" name="select-tip-radio" value="10">
+						<label for="tip-10">10%</label>
+					</div>
+					<div>
+						<input type="radio" id="tip-15" name="select-tip-radio" value="15">
+						<label for="tip-15">15%</label>
+					</div>
+					<div>
+						<input type="radio" id="tip-25" name="select-tip-radio" value="25">
+						<label for="tip-25">25%</label>
+					</div>
+					<div>
+						<input type="radio" id="tip-50" name="select-tip-radio" value="50">
+						<label for="tip-50">50%</label>
+					</div>
+					<div>
+						<input type="radio" id="tip-custom" name="select-tip-radio" value="custom">
+						<label for="tip-custom">Custom</label>
+					</div>
 				</div>
 			</div>
-
-			<p class="calc-left-label">Number of People</p>
-			<input type="number" id="form_people" name="form_people" min="1"><br>
+			<div>
+				<p class="calc-left-label">Number of People</p>
+				<input type="number" id="form-people" name="form-people" min="1" value="2" step="1"><br>
+			</div>
 			
 		</div>
 		<div class="calc-right">
@@ -74,7 +79,7 @@
 				</div>
 			</div>
 
-			Reset
+			<button>Reset</button>
 		</div>
 	</div>
 </div>

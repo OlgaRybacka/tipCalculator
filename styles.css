@@ -1,52 +1,111 @@
 :root {
 	--strong-cyan: hsl(172, 67%, 45%);
-	--very dark cyan: hsl(183, 100%, 15%);
+	--very-dark-cyan: hsl(183, 100%, 15%);
 	--dark-grayish-cyan: hsl(186, 14%, 43%);
 	--dark-grayish-cyan2: hsl(184, 14%, 56%);
 	--light-grayish-cyan: hsl(185, 41%, 84%);
-	--light-grayish-cyan: hsl(189, 41%, 97%);
+	--light-grayish-cyan2: hsl(189, 41%, 97%);
 	--white: hsl(0, 0%, 100%);
+	--left-right-width: 0.45;
+	--calc-width: 0.6;
 }
 
 *, *::before, *::after {
 	font-family: 'Space Mono', monospace;
+	font-size: 14px;
 	box-sizing: border-box;
-	border: 1px solid red;
+	/*margin: 0;*/
+	/*border: 1px solid red;*/
+}
+
+body {
+	margin: 0;
 }
 
 .container {
 	display:flex;
 	flex-direction: column;
+	justify-content: space-evenly;
 	width: 1440px;
-	margin: auto;
+	height: 100vh;
+	margin: 0 auto;
+	background-color: var(--light-grayish-cyan);
 }
 
 .logo {
-	margin:auto;
+	margin:0 auto;
 }
 
 .calculator {
 	display:flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-	width: 60%;
-	margin: auto;
+	width: calc(var(--calc-width)*100%);
+	margin: 0 auto;
+	background-color: white;
+	/*padding: 30px;*/
+	border-radius: 25px;
+	/*make padding top and bottom the same as spaces from space-evenly*/
+	padding: calc(var(--calc-width)*(1 - var(--left-right-width)*2)*100%/3) 0;
 }
 
 .calculator > div {
-	width: 40%;
+	width: calc(var(--left-right-width)*100%);
 }
+
+.calc-left {
+	padding: 0 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.calc-left-label {
+	color: var(--dark-grayish-cyan);
+	font-weight: 900;
+	margin: 10px 0;
+}
+
+.calc-left input {
+	background-color:var(--light-grayish-cyan2);
+	background-repeat: no-repeat;
+	background-position: 15px 50%;
+	color: var(--very-dark-cyan);
+	text-align: right;
+}
+
+.calc-left input, input[type=radio]+label {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 2.3em;
+	border-radius: 5px;
+	border: none;
+	width: 100%;
+}
+
+
+.calc-left input#form-bill {
+	
+	background-image: url(images/icon-dollar.svg);
+}
+
+.calc-left input#form-people {
+	
+	background-image: url(images/icon-person.svg);
+}
+
+
 
 .calc-left-radiogroup {
 	display:flex;
 	flex-direction:row;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	gap: 15px;
 }
 
 .calc-left-radiogroup > div {
-	width: 30%;
-	background: blue;
+	flex: 1 0 30%;
 }
 
 input[type=radio] {
@@ -55,13 +114,25 @@ input[type=radio] {
 	width: 0;
 }
 input[type=radio]+label {
-	font-weight: normal;
+	color:white;
+	text-align: center;
+	display: block;
+	background-color: var(--very-dark-cyan);
 }
+
 input[type=radio]:checked+label {
 	font-weight: bold;
 }
 input[type=radio]:focus+label {
 	border: 1px dotted #000;
+}
+
+
+
+.calc-right {
+	background-color: var(--very-dark-cyan);
+	border-radius: 15px;
+	
 }
 
 .calc-right-row {
