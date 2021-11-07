@@ -5,6 +5,7 @@
 	--dark-grayish-cyan2: hsl(184, 14%, 56%);
 	--light-grayish-cyan: hsl(185, 41%, 84%);
 	--light-grayish-cyan2: hsl(189, 41%, 97%);
+	--third-cyan: hsl(173, 61%, 77%);
 	--white: hsl(0, 0%, 100%);
 	--left-right-width: 0.45;
 	--calc-width: 0.6;
@@ -20,6 +21,17 @@
 
 body {
 	margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .container {
@@ -66,23 +78,36 @@ body {
 	margin: 10px 0;
 }
 
-.calc-left input {
-	background-color:var(--light-grayish-cyan2);
-	background-repeat: no-repeat;
-	background-position: 15px 50%;
-	color: var(--very-dark-cyan);
-	text-align: right;
+.calc-left input::placeholder {
+	color: var(--dark-grayish-cyan2);
 }
 
 .calc-left input, input[type=radio]+label {
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 2.3em;
+	height: 2.3em;
 	border-radius: 5px;
 	border: none;
 	width: 100%;
 }
 
+.calc-left input#form-bill, .calc-left input#form-people {
+	background-color:var(--light-grayish-cyan2);
+	color: var(--very-dark-cyan);
+}
+
+
+.calc-left input#form-bill, .calc-left input#form-people {
+	text-align: right;
+	background-repeat: no-repeat;
+	background-position: 15px 50%;
+	padding-right: 15px; /*same as background-position xpos*/
+}
+
+.calc-left input[type=number]:focus, .calc-left input[type=number]:hover{
+	outline: 2px solid var(--strong-cyan);
+}
 
 .calc-left input#form-bill {
 	
@@ -120,14 +145,25 @@ input[type=radio]+label {
 	background-color: var(--very-dark-cyan);
 }
 
+
+input[type=radio]:hover+label {
+	background-color: var(--third-cyan);
+	color: var(--very-dark-cyan);
+}
+
 input[type=radio]:checked+label {
-	font-weight: bold;
-}
-input[type=radio]:focus+label {
-	border: 1px dotted #000;
+	background-color: var(--strong-cyan);
+	color: var(--very-dark-cyan);
 }
 
+input:invalid {
+  outline: 2px solid red;
+}
 
+.calc-left .calc-left-radiogroup input[type=number] {
+	background-color:var(--light-grayish-cyan2);
+	text-align: center;
+}
 
 .calc-right {
 	background-color: var(--very-dark-cyan);
