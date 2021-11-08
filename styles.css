@@ -7,8 +7,9 @@
 	--light-grayish-cyan2: hsl(189, 41%, 97%);
 	--third-cyan: hsl(173, 61%, 77%);
 	--white: hsl(0, 0%, 100%);
-	--left-right-width: 0.45;
-	--calc-width: 0.6;
+	--left-right-width: 0.45; 
+	--calc-width: 860px; /*px*/
+	--input-height: 46px;
 }
 
 *, *::before, *::after {
@@ -38,8 +39,8 @@ input[type=number] {
 	display:flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	width: 1440px;
-	height: 100vh;
+	max-width: 1440px;
+	min-height: 100vh;
 	margin: 0 auto;
 	background-color: var(--light-grayish-cyan);
 }
@@ -52,13 +53,13 @@ input[type=number] {
 	display:flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-	width: calc(var(--calc-width)*100%);
+	width: var(--calc-width);
 	margin: 0 auto;
 	background-color: white;
 	/*padding: 30px;*/
 	border-radius: 25px;
 	/*make padding top and bottom the same as spaces from space-evenly*/
-	padding: calc(var(--calc-width)*(1 - var(--left-right-width)*2)*100%/3) 0;
+	padding: calc(var(--calc-width)*(1 - var(--left-right-width)*2)/3) 0;
 }
 
 .calculator > div {
@@ -66,7 +67,7 @@ input[type=number] {
 }
 
 .calc-left {
-	padding: 0 15px;
+	padding: 15px;
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
@@ -75,7 +76,8 @@ input[type=number] {
 .calc-left-label {
 	color: var(--dark-grayish-cyan);
 	font-weight: 900;
-	margin: 10px 0;
+	margin-top: 0;
+	margin-bottom: 0.8em;
 }
 
 .calc-left input::placeholder {
@@ -85,11 +87,15 @@ input[type=number] {
 .calc-left input, input[type=radio]+label {
 	font-size: 20px;
 	font-weight: 700;
-	line-height: 2.3em;
-	height: 2.3em;
-	border-radius: 5px;
 	border: none;
 	width: 100%;
+}
+
+
+.calc-left input, input[type=radio]+label, .calc-right button {
+	line-height: var(--input-height);
+	height: var(--input-height);
+	border-radius: 5px;
 }
 
 .calc-left input#form-bill, .calc-left input#form-people {
@@ -168,6 +174,10 @@ input:invalid {
 .calc-right {
 	background-color: var(--very-dark-cyan);
 	border-radius: 15px;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content:space-between;
 	
 }
 
@@ -175,8 +185,46 @@ input:invalid {
 	display:flex;
 	flex-direction:row;
 	justify-content: space-between;
+	margin-bottom:30px;
+	padding: 1em 0;
 }
 
+.calc-right-row-label {
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.calc-right-row-title, .calc-right-row-subtitle {
+	font-weight: 600;
+	margin: 0;
+}
+
+.calc-right-row-title {
+	color: var(--light-grayish-cyan2);
+}
+
+.calc-right-row-subtitle {
+	color: var(--light-grayish-cyan);
+	font-size: 0.8em;
+}
+
+.calc-right-row-number {
+	color: var(--strong-cyan);
+	font-size: 3em;
+	margin: 0;
+	line-height:1em;
+	font-weight:700;
+}
+
+.calc-right button {
+	background-color: var(--strong-cyan);
+	text-transform: uppercase;
+	border: none;
+	outline: none;
+	color: var(--very-dark-cyan);
+	font-weight: 900;
+}
 
 
 
@@ -187,4 +235,19 @@ input:invalid {
 
 .attribution a { 
 	color: hsl(228, 45%, 44%); 
+}
+
+@media screen and (max-width: 860px) {
+	.calculator {
+		flex-direction: column;
+		width: 100%;
+	}
+	
+	.calculator > div {
+		width: 100%;
+	}
+	
+	.container {
+		display: block;
+	}
 }
