@@ -162,9 +162,6 @@ input[type=radio]:checked+label {
 	color: var(--very-dark-cyan);
 }
 
-input:invalid {
-  outline: 2px solid red;
-}
 
 .calc-left .calc-left-radiogroup input[type=number] {
 	background-color:var(--light-grayish-cyan2);
